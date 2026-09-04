@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nabilah Al Mira | HR & People Specialist</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Montserrat (Clean) & Cardo (Professional Serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            /* Palette: Pink & Lilac Tones */
+            --bg-lilac: #d8b4f8; /* Soft Lilac */
+            --bg-pink: #f5c6d6; /* Soft Blush Pink */
+            --bg-light: #fcf6f9; /* Light Pink-Lilac Tinted Background */
+            --accent: #482344; /* Deep Mulberry / Dark Plum (Text & Dark Accents) */
+            --accent-hover: #672961; /* Hover State for Accent */
+            --white-creme: #ffffff;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--accent);
+            margin: 0;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        h1, h2, .serif {
+            font-family: 'Cardo', serif;
+        }
+
+        section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            scroll-snap-align: start;
+            position: relative;
+            padding: 60px 0;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-left {
+            padding-right: 50px;
+        }
+
+        .hero-tag {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        /* Photo Wrapper - HR Style */
+        .photo-frame {
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(72, 35, 68, 0.12);
+            filter: brightness(102%) contrast(102%);
+        }
+
+        /* Floating CV Button (Elegant Sidebar) */
+        .cv-link {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            z-index: 100;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cv-link:hover {
+            background: var(--accent-hover);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* --- CONTENT CARDS (Context: HR) --- */
+        .hr-card, .exp-card {
+            background: var(--white-creme);
+            border: none;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(72, 35, 68, 0.05);
+            height: 100%;
+            transition: 0.4s;
+        }
+
+        .hr-card:hover, .exp-card:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, var(--bg-lilac), var(--bg-pink));
+            color: var(--accent);
+            box-shadow: 0 15px 35px rgba(72, 35, 68, 0.12);
+        }
+
+        .hr-card i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+            color: var(--accent);
+        }
+
+        /* --- SKILLS & CERTIFICATION --- */
+        .skill-badge {
+            display: inline-block;
+            padding: 8px 18px;
+            margin: 4px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+        }
+
+        .skill-badge:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .cert-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Tombol CV -->
+    <a href="berkas/CV_Nabilah_Almira.pdf" class="cv-link shadow" download="CV_Nabilah_Almira.pdf">
+        <span>DOWNLOAD CV</span>
+        <i class="bi bi-file-earmark-pdf"></i>
+    </a>
+
+    <!-- SECTION 1: HERO (Connecting People) -->
+    <section id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 hero-left">
+                    <span class="hero-tag">People & Culture Specialist</span>
+                    <h1 class="hero-title mb-4">Nabilah Al Mira</h1>
+                    <p class="fs-5 opacity-75 mb-5">
+                        Saya adalah profesional di bidang Sumber Daya Manusia yang berfokus pada pengembangan potensi manusia dan membangun lingkungan kerja yang inklusif serta produktif.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 gap-md-4">
+                        <a href="#profile" class="text-decoration-none fw-bold pb-1" style="color: var(--accent); border-bottom: 2px solid var(--accent);">PROFIL</a>
+                        <a href="#experience" class="text-decoration-none fw-bold pb-1" style="color: var(--accent); border-bottom: 2px solid var(--accent);">PENGALAMAN</a>
+                        <a href="#skills" class="text-decoration-none fw-bold pb-1" style="color: var(--accent); border-bottom: 2px solid var(--accent);">SKILLS & SERTIFIKASI</a>
+                        <a href="#specialization" class="text-decoration-none fw-bold pb-1" style="color: var(--accent); border-bottom: 2px solid var(--accent);">KEAHLIAN</a>
+                        <a href="#contact" class="text-decoration-none fw-bold pb-1" style="color: var(--accent); border-bottom: 2px solid var(--accent);">HUBUNGI SAYA</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center mt-5 mt-lg-0">
+                    <div class="photo-frame">
+                        <!-- Foto Wanita HR Profesional -->
+                        <img src="berkas/fotonabila.png" 
+                             alt="HR Professional Portrait" 
+                             class="hero-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: PROFILE & EDUCATION -->
+    <section id="profile" style="background: linear-gradient(135deg, var(--bg-lilac) 0%, var(--bg-pink) 100%);">
+        <div class="container" style="color: var(--accent);">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 text-center">
+                    <span class="text-uppercase fw-bold small mb-3 d-block" style="letter-spacing: 5px; opacity: 0.85;">Profile & Education</span>
+                    <h2 class="display-4 mb-4 fw-bold">Professional Profile</h2>
+                    <p class="fs-4 fw-light lh-lg mb-5">
+                        Lulusan S1 Psikologi dengan fokus pada Human Resources. Memiliki keahlian dalam rekrutmen masif, administrasi PKWT, hingga inisiasi proyek gamifikasi untuk meningkatkan engagement karyawan. Saya percaya bahwa setiap talenta memiliki tempat yang tepat untuk bertumbuh.
+                    </p>
+                    <div class="mt-4 pt-4 border-top" style="border-color: rgba(72, 35, 68, 0.2) !important;">
+                        <h5 class="serif italic text-uppercase opacity-75 mb-2" style="letter-spacing: 2px;">Pendidikan</h5>
+                        <p class="mb-1 fs-5 fw-bold">S1 Psikologi — Universitas Mercu Buana Yogyakarta</p>
+                        <p class="opacity-75 mb-0">2021 – 2025 | IPK 3,56</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: WORK EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">Work Experience</h2>
+                    <div style="width: 80px; height: 4px; background: linear-gradient(90deg, var(--bg-lilac), var(--bg-pink));"></div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="exp-card">
+                        <span class="badge mb-3" style="background-color: var(--accent); font-size: 0.85rem; padding: 6px 14px;">2025 - 2026</span>
+                        <h4 class="fw-bold mb-1">HR Recruitment</h4>
+                        <p class="small fw-bold opacity-75 mb-3">IndiHome by Telkomsel</p>
+                        <ul class="small opacity-75 ps-3 mb-0">
+                            <li class="mb-2">Rekrutmen end-to-end (Sourcing - Onboarding).</li>
+                            <li class="mb-2">Berhasil merekrut 30+ kandidat dalam 3 bulan.</li>
+                            <li>Sourcing via Glints, Jobstreet, & Media Sosial.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="exp-card">
+                        <span class="badge mb-3" style="background-color: var(--accent); font-size: 0.85rem; padding: 6px 14px;">2025</span>
+                        <h4 class="fw-bold mb-1">HR People Development</h4>
+                        <p class="small fw-bold opacity-75 mb-3">PT Dialogika Persona Indonesia</p>
+                        <ul class="small opacity-75 ps-3 mb-0">
+                            <li class="mb-2">Kelola pengembangan 30 intern.</li>
+                            <li class="mb-2">Melakukan TNA & 3 Program Pelatihan.</li>
+                            <li>Inisiasi proyek gamifikasi engagement.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="exp-card">
+                        <span class="badge mb-3" style="background-color: var(--accent); font-size: 0.85rem; padding: 6px 14px;">2024</span>
+                        <h4 class="fw-bold mb-1">Asisten Psikologi</h4>
+                        <p class="small fw-bold opacity-75 mb-3">RSJ Soerojo Magelang</p>
+                        <ul class="small opacity-75 ps-3 mb-0">
+                            <li class="mb-2">Observasi & administrasi asesmen psikologis.</li>
+                            <li class="mb-2">Pendampingan aktivitas pasien.</li>
+                            <li>Pengembangan empati & active listening.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: SKILLS & CERTIFICATION -->
+    <section id="skills" style="background-color: var(--accent);">
+        <div class="container text-white">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">Competencies</h2>
+                    <div class="mb-4">
+                        <h6 class="text-uppercase fw-bold opacity-50 mb-2" style="letter-spacing: 2px;">Recruitment</h6>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="skill-badge text-white">End-to-End</span>
+                            <span class="skill-badge text-white">Sourcing</span>
+                            <span class="skill-badge text-white">Interview</span>
+                            <span class="skill-badge text-white">Selection</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h6 class="text-uppercase fw-bold opacity-50 mb-2" style="letter-spacing: 2px;">HR Admin</h6>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="skill-badge text-white">PKWT</span>
+                            <span class="skill-badge text-white">Attendance</span>
+                            <span class="skill-badge text-white">Employee Data</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h6 class="text-uppercase fw-bold opacity-50 mb-2" style="letter-spacing: 2px;">People Development</h6>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="skill-badge text-white">TNA</span>
+                            <span class="skill-badge text-white">Training</span>
+                            <span class="skill-badge text-white">Engagement</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">Certification</h2>
+                    <div class="cert-card mb-5">
+                        <h4 class="serif italic mb-2">Supervisor Rekrutmen & Seleksi SDM</h4>
+                        <p class="opacity-75 mb-0">Sertifikasi Kompetensi | 2025</p>
+                    </div>
+                    <div>
+                        <h6 class="text-uppercase fw-bold opacity-50 mb-3" style="letter-spacing: 2px;">Soft Skills</h6>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="skill-badge text-white">Communication</span>
+                            <span class="skill-badge text-white">Teamwork</span>
+                            <span class="skill-badge text-white">Active Listening</span>
+                            <span class="skill-badge text-white">Adaptability</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: SPECIALIZATION (HR Focus Areas) -->
+    <section id="specialization" style="background: linear-gradient(135deg, var(--bg-lilac) 0%, var(--bg-pink) 100%);">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">Keahlian Utama</h2>
+                    <div style="width: 80px; height: 4px; background: var(--accent);"></div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="hr-card">
+                        <i class="bi bi-people"></i>
+                        <h4 class="fw-bold">Talent Acquisition</h4>
+                        <p>Mengidentifikasi dan menarik talenta terbaik yang sesuai dengan nilai-nilai perusahaan (Culture Fit).</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="hr-card">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <h4 class="fw-bold">Employee Development</h4>
+                        <p>Merancang program pelatihan dan jenjang karir untuk meningkatkan produktivitas tim secara berkelanjutan.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="hr-card">
+                        <i class="bi bi-heart-pulse"></i>
+                        <h4 class="fw-bold">Company Culture</h4>
+                        <p>Membangun lingkungan kerja yang sehat, meningkatkan keterlibatan karyawan, dan menjaga work-life balance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CONTACT (Professional Reach) -->
+    <section id="contact" style="background-color: var(--accent);">
+        <div class="container text-white">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="display-4 serif mb-4">Mari Berdiskusi Mengenai Tim Anda.</h2>
+                    <p class="opacity-75 fs-5">Saya terbuka untuk peluang kerjasama sebagai konsultan HR atau posisi full-time.</p>
+                </div>
+                <div class="col-lg-6 text-lg-end mt-5 mt-lg-0">
+                    <div class="mb-4">
+                        <small class="text-uppercase opacity-50 d-block mb-2">Email</small>
+                        <a href="mailto:nabilahalmira1@gmail.com" class="text-white fs-3 text-decoration-none">nabilahalmira1@gmail.com</a>
+                    </div>
+                    <div class="d-flex gap-4 justify-content-lg-end fs-2 mt-5">
+                        <a href="https://www.linkedin.com/in/nabilahalmira/" class="text-white opacity-50"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://www.instagram.com/_almira.j/" class="text-white opacity-50"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/6285943543223" class="text-white opacity-50"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 pt-5 border-top border-secondary text-center small opacity-50">
+                &copy; 2024 Nabilah Al Mira. Professional Human Resource Portfolio.
+            </div>
+        </div>
+    </section>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
