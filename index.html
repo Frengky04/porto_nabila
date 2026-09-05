@@ -14,18 +14,20 @@
     
     <style>
         :root {
-            /* Palette: Pink & Lilac Tones */
-            --bg-lilac: #d8b4f8; /* Soft Lilac */
-            --bg-pink: #f5c6d6; /* Soft Blush Pink */
-            --bg-light: #fcf6f9; /* Light Pink-Lilac Tinted Background */
-            --accent: #482344; /* Deep Mulberry / Dark Plum (Text & Dark Accents) */
-            --accent-hover: #672961; /* Hover State for Accent */
+            /* Palette: Dominant Rose & Pink Tones */
+            --bg-pink: #f4a2b8; /* Rich Rose Pink */
+            --bg-pink-soft: #f8c8d5; /* Soft Blush Pink */
+            --bg-pink-light: #fdf0f4; /* Pink-Tinted Light Background */
+            --bg-lilac: #e4d0fb; /* Soft Lilac Accent */
+            --accent: #4a102e; /* Deep Mulberry Berry (Text & Dark Accents) */
+            --accent-pink: #d81b60; /* Vibrant Rose Pink Accent */
+            --accent-hover: #b71c1c; /* Hover State for Accent */
             --white-creme: #ffffff;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-light);
+            background-color: var(--bg-pink-light);
             color: var(--accent);
             margin: 0;
             scroll-snap-type: y mandatory;
@@ -57,7 +59,8 @@
             letter-spacing: 3px;
             font-size: 0.8rem;
             font-weight: 700;
-            border-bottom: 2px solid var(--accent);
+            color: var(--accent-pink);
+            border-bottom: 2px solid var(--accent-pink);
             display: inline-block;
             margin-bottom: 20px;
         }
@@ -81,7 +84,7 @@
             left: 20px;
             width: 100%;
             height: 100%;
-            border: 2px solid var(--accent);
+            border: 2px solid var(--accent-pink);
             z-index: -1;
             border-radius: 10px;
         }
@@ -90,7 +93,7 @@
             width: 100%;
             max-width: 450px;
             border-radius: 10px;
-            box-shadow: 0 15px 35px rgba(72, 35, 68, 0.12);
+            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.15);
             filter: brightness(102%) contrast(102%);
         }
 
@@ -100,7 +103,7 @@
             bottom: 50px;
             right: 50px;
             z-index: 100;
-            background: var(--accent);
+            background: linear-gradient(135deg, #e91e63, #c2185b);
             color: white;
             padding: 12px 30px;
             border-radius: 5px;
@@ -110,12 +113,14 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            box-shadow: 0 8px 25px rgba(216, 27, 96, 0.3);
         }
 
         .cv-link:hover {
-            background: var(--accent-hover);
+            background: linear-gradient(135deg, #c2185b, #ad1457);
             color: white;
             transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(216, 27, 96, 0.4);
         }
 
         /* --- CONTENT CARDS (Context: HR) --- */
@@ -124,23 +129,23 @@
             border: none;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(72, 35, 68, 0.05);
+            box-shadow: 0 10px 30px rgba(216, 27, 96, 0.06);
             height: 100%;
             transition: 0.4s;
         }
 
         .hr-card:hover, .exp-card:hover {
             transform: translateY(-10px);
-            background: linear-gradient(135deg, var(--bg-lilac), var(--bg-pink));
+            background: linear-gradient(135deg, var(--bg-pink) 0%, #fce2ea 100%);
             color: var(--accent);
-            box-shadow: 0 15px 35px rgba(72, 35, 68, 0.12);
+            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.18);
         }
 
         .hr-card i {
             font-size: 2.5rem;
             margin-bottom: 20px;
             display: block;
-            color: var(--accent);
+            color: var(--accent-pink);
         }
 
         /* --- SKILLS & CERTIFICATION --- */
@@ -149,23 +154,23 @@
             padding: 8px 18px;
             margin: 4px;
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(244, 162, 184, 0.4);
             font-size: 0.85rem;
             font-weight: 600;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(244, 162, 184, 0.15);
             backdrop-filter: blur(5px);
             transition: 0.3s;
         }
 
         .skill-badge:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: #ffffff;
+            background: var(--accent-pink);
+            border-color: var(--accent-pink);
             transform: translateY(-2px);
         }
 
         .cert-card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(244, 162, 184, 0.15);
+            border: 1px solid rgba(244, 162, 184, 0.3);
             padding: 30px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
@@ -173,8 +178,18 @@
         }
 
         .cert-card:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(244, 162, 184, 0.25);
+            border-color: var(--bg-pink);
             transform: translateY(-5px);
+        }
+
+        .social-link {
+            transition: 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--bg-pink) !important;
+            transform: translateY(-3px);
         }
 
     </style>
@@ -198,11 +213,11 @@
                         Saya adalah profesional di bidang Sumber Daya Manusia yang berfokus pada pengembangan potensi manusia dan membangun lingkungan kerja yang inklusif serta produktif.
                     </p>
                     <div class="d-flex flex-wrap gap-3 gap-md-4">
-                        <a href="#profile" class="text-decoration-none fw-bold pb-1" style="color: var(--accent); border-bottom: 2px solid var(--accent);">PROFIL</a>
-                        <a href="#experience" class="text-decoration-none fw-bold pb-1" style="color: var(--accent); border-bottom: 2px solid var(--accent);">PENGALAMAN</a>
-                        <a href="#skills" class="text-decoration-none fw-bold pb-1" style="color: var(--accent); border-bottom: 2px solid var(--accent);">SKILLS & SERTIFIKASI</a>
-                        <a href="#specialization" class="text-decoration-none fw-bold pb-1" style="color: var(--accent); border-bottom: 2px solid var(--accent);">KEAHLIAN</a>
-                        <a href="#contact" class="text-decoration-none fw-bold pb-1" style="color: var(--accent); border-bottom: 2px solid var(--accent);">HUBUNGI SAYA</a>
+                        <a href="#profile" class="text-decoration-none fw-bold pb-1" style="color: var(--accent-pink); border-bottom: 2px solid var(--accent-pink);">PROFIL</a>
+                        <a href="#experience" class="text-decoration-none fw-bold pb-1" style="color: var(--accent-pink); border-bottom: 2px solid var(--accent-pink);">PENGALAMAN</a>
+                        <a href="#skills" class="text-decoration-none fw-bold pb-1" style="color: var(--accent-pink); border-bottom: 2px solid var(--accent-pink);">SKILLS & SERTIFIKASI</a>
+                        <a href="#specialization" class="text-decoration-none fw-bold pb-1" style="color: var(--accent-pink); border-bottom: 2px solid var(--accent-pink);">KEAHLIAN</a>
+                        <a href="#contact" class="text-decoration-none fw-bold pb-1" style="color: var(--accent-pink); border-bottom: 2px solid var(--accent-pink);">HUBUNGI SAYA</a>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center mt-5 mt-lg-0">
@@ -218,7 +233,7 @@
     </section>
 
     <!-- SECTION 2: PROFILE & EDUCATION -->
-    <section id="profile" style="background: linear-gradient(135deg, var(--bg-lilac) 0%, var(--bg-pink) 100%);">
+    <section id="profile" style="background: linear-gradient(135deg, #f4a2b8 0%, #fce2ea 70%, #e4d0fb 100%);">
         <div class="container" style="color: var(--accent);">
             <div class="row justify-content-center">
                 <div class="col-lg-9 text-center">
@@ -227,7 +242,7 @@
                     <p class="fs-4 fw-light lh-lg mb-5">
                         Lulusan S1 Psikologi dengan fokus pada Human Resources. Memiliki keahlian dalam rekrutmen masif, administrasi PKWT, hingga inisiasi proyek gamifikasi untuk meningkatkan engagement karyawan. Saya percaya bahwa setiap talenta memiliki tempat yang tepat untuk bertumbuh.
                     </p>
-                    <div class="mt-4 pt-4 border-top" style="border-color: rgba(72, 35, 68, 0.2) !important;">
+                    <div class="mt-4 pt-4 border-top" style="border-color: rgba(216, 27, 96, 0.25) !important;">
                         <h5 class="serif italic text-uppercase opacity-75 mb-2" style="letter-spacing: 2px;">Pendidikan</h5>
                         <p class="mb-1 fs-5 fw-bold">S1 Psikologi — Universitas Mercu Buana Yogyakarta</p>
                         <p class="opacity-75 mb-0">2021 – 2025 | IPK 3,56</p>
@@ -243,13 +258,13 @@
             <div class="row mb-5">
                 <div class="col-12">
                     <h2 class="display-5 fw-bold">Work Experience</h2>
-                    <div style="width: 80px; height: 4px; background: linear-gradient(90deg, var(--bg-lilac), var(--bg-pink));"></div>
+                    <div style="width: 80px; height: 4px; background: linear-gradient(90deg, #d81b60, #f4a2b8);"></div>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="exp-card">
-                        <span class="badge mb-3" style="background-color: var(--accent); font-size: 0.85rem; padding: 6px 14px;">2025 - 2026</span>
+                        <span class="badge mb-3" style="background: linear-gradient(135deg, #d81b60, #ad1457); color: white; font-size: 0.85rem; padding: 6px 14px;">2025 - 2026</span>
                         <h4 class="fw-bold mb-1">HR Recruitment</h4>
                         <p class="small fw-bold opacity-75 mb-3">IndiHome by Telkomsel</p>
                         <ul class="small opacity-75 ps-3 mb-0">
@@ -261,7 +276,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="exp-card">
-                        <span class="badge mb-3" style="background-color: var(--accent); font-size: 0.85rem; padding: 6px 14px;">2025</span>
+                        <span class="badge mb-3" style="background: linear-gradient(135deg, #d81b60, #ad1457); color: white; font-size: 0.85rem; padding: 6px 14px;">2025</span>
                         <h4 class="fw-bold mb-1">HR People Development</h4>
                         <p class="small fw-bold opacity-75 mb-3">PT Dialogika Persona Indonesia</p>
                         <ul class="small opacity-75 ps-3 mb-0">
@@ -273,7 +288,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="exp-card">
-                        <span class="badge mb-3" style="background-color: var(--accent); font-size: 0.85rem; padding: 6px 14px;">2024</span>
+                        <span class="badge mb-3" style="background: linear-gradient(135deg, #d81b60, #ad1457); color: white; font-size: 0.85rem; padding: 6px 14px;">2024</span>
                         <h4 class="fw-bold mb-1">Asisten Psikologi</h4>
                         <p class="small fw-bold opacity-75 mb-3">RSJ Soerojo Magelang</p>
                         <ul class="small opacity-75 ps-3 mb-0">
@@ -288,7 +303,7 @@
     </section>
 
     <!-- SECTION 4: SKILLS & CERTIFICATION -->
-    <section id="skills" style="background-color: var(--accent);">
+    <section id="skills" style="background: linear-gradient(135deg, #581639 0%, #420f2a 100%);">
         <div class="container text-white">
             <div class="row g-5">
                 <div class="col-lg-6">
@@ -323,7 +338,7 @@
                     <h2 class="display-5 fw-bold mb-4">Certification</h2>
                     <div class="cert-card mb-5">
                         <h4 class="serif italic mb-2">Supervisor Rekrutmen & Seleksi SDM</h4>
-                        <p class="opacity-75 mb-0">Sertifikasi Kompetensi | 2025</p>
+                        <p class="opacity-75 mb-0">Sertifikasi BNSP | 2025</p>
                     </div>
                     <div>
                         <h6 class="text-uppercase fw-bold opacity-50 mb-3" style="letter-spacing: 2px;">Soft Skills</h6>
@@ -340,12 +355,12 @@
     </section>
 
     <!-- SECTION 5: SPECIALIZATION (HR Focus Areas) -->
-    <section id="specialization" style="background: linear-gradient(135deg, var(--bg-lilac) 0%, var(--bg-pink) 100%);">
+    <section id="specialization" style="background: linear-gradient(135deg, #f4a2b8 0%, #fce2ea 100%);">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
                     <h2 class="display-5 fw-bold">Keahlian Utama</h2>
-                    <div style="width: 80px; height: 4px; background: var(--accent);"></div>
+                    <div style="width: 80px; height: 4px; background: var(--accent-pink);"></div>
                 </div>
             </div>
             <div class="row g-4">
@@ -388,9 +403,9 @@
                         <a href="mailto:nabilahalmira1@gmail.com" class="text-white fs-3 text-decoration-none">nabilahalmira1@gmail.com</a>
                     </div>
                     <div class="d-flex gap-4 justify-content-lg-end fs-2 mt-5">
-                        <a href="https://www.linkedin.com/in/nabilahalmira/" class="text-white opacity-50"><i class="bi bi-linkedin"></i></a>
-                        <a href="https://www.instagram.com/_almira.j/" class="text-white opacity-50"><i class="bi bi-instagram"></i></a>
-                        <a href="https://wa.me/6285943543223" class="text-white opacity-50"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/in/nabilahalmira/" class="text-white opacity-50 social-link"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://www.instagram.com/_almira.j/" class="text-white opacity-50 social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/6285943543223" class="text-white opacity-50 social-link"><i class="bi bi-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
